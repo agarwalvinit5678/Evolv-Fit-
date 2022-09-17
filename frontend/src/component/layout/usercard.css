@@ -1,0 +1,49 @@
+.UserCard{
+    display: flex;
+    flex-direction: row;
+    background-color: gray;
+    margin:1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    
+}
+.NameEmail{
+    display:flexbox;
+    flex-direction: ;
+    position:absolute;
+    
+}
+.removeMargin{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.col1{
+    
+    margin-left:3rem
+}
+.col2{
+    margin-left:3rem
+}
+.col3{
+    margin-left:12rem
+}
+.col4{
+    margin-left:6rem
+}
+.col5{
+    display:flexbox;
+    flex-direction: row;
+    margin-left:10rem
+}
+.allmargin{
+    margin: 0.4rem;
+}
+.removeMargin2{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.Stepcircle{
+    height: 4rem;
+    width: 4rem;
+}

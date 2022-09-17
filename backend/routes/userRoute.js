@@ -1,0 +1,11 @@
+const express=require("express");
+const { registerUser, loginUser, logout, updateTarget, updateConsumed,getallUsers } = require("../controllers/userController");
+const {  authorizeRoles } = require("../middleware/auth");
+const router=express.Router();
+router.route("/register").post(registerUser);
+router.route("/login").post(loginUser);
+router.route("/logout").get(logout);
+router.route("/updateTarget").post(authorizeRoles("admin"),updateTarget);
+router.route("/updateConsumed").post(authorizeRoles("user"),updateConsumed);
+router.route("/getallUsers").get(getallUsers);
+module.exports=router;
