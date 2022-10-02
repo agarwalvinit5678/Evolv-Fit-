@@ -3,7 +3,7 @@ import {ReactNavbar} from "overlay-navbar";
 import {BrowserRouter as Router} from "react-router-dom";
 const options={
         link1Text:"About Us",
-        link2Text:"Track",
+        link2Text:"Register/Signup",
         link3Text:"Contact Us",
         link4Text:""  ,
         link1Color:"white",

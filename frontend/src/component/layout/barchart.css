@@ -1,0 +1,17 @@
+.barcontainerout{
+background-color: black;
+height: 7rem;
+width: 12.5rem;
+border-radius: 0.5rem;
+padding:2rem;
+color:white;
+text-align: center;
+
+}
+.barcontainerin{
+    
+    display: absolute;
+margin-top: -11rem;
+margin-left: 3.4rem;
+
+    }

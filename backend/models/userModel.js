@@ -20,20 +20,20 @@ role:{
     default:"user",
 
 },
-  avatar: {
+avatar: {
   public_id: {
-    type: String
-
+    type: String,
+    required: true,
   },
   url: {
-    type: String
+    type: String,
+    required: true,
   },
-  },
-  googleId:String,
+},
   stepsWalked:Number,
   stepsTarget:Number,
-  performedDate:Number,
-  scheduledDate:Number,
+  performedDate:Date,
+  scheduledDate:Date,
   calorieIntake:Number,
   calorieTarget:Number,
   proteinConsumed:Number,
@@ -41,7 +41,8 @@ role:{
   carbConsumed:Number,
   carbTarget:Number,
   fatConsumed:Number,
-  fatTarget:Number
+  fatTarget:Number,
+  feedback:Boolean
 });
 // requires the model with Passport-Local Mongoose plugged in   
 userSchema.plugin(passportLocalMongoose);

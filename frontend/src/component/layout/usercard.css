@@ -1,15 +1,16 @@
 .UserCard{
     display: flex;
     flex-direction: row;
-    background-color: gray;
+    background-color: rgb(30,39,44);
     margin:1rem;
     border-radius: 1rem;
     padding: 1rem;
     
+    
 }
 .NameEmail{
     display:flexbox;
-    flex-direction: ;
+    flex-direction:vertical ;
     position:absolute;
     
 }
@@ -25,7 +26,7 @@
     margin-left:3rem
 }
 .col3{
-    margin-left:12rem
+    margin-left:8rem
 }
 .col4{
     margin-left:6rem
@@ -33,7 +34,13 @@
 .col5{
     display:flexbox;
     flex-direction: row;
-    margin-left:10rem
+    margin-left:4rem
+}
+.col6{
+margin: auto;
+padding: 0.5rem;
+background-color:#37f5c6;
+border-radius: 0.4rem;
 }
 .allmargin{
     margin: 0.4rem;
@@ -46,4 +53,52 @@
 .Stepcircle{
     height: 4rem;
     width: 4rem;
+}
+.outerdiv{
+    position: relative;
+}
+.innerdiv {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+  }
+.centernumber {
+    text-align: center;
+  }
+.centertext {
+    text-align: center;
+    font-size: 0.5rem;
+  }
+.checking2{
+    font-size: 2rem;
+    padding: 1rem;
+    margin: auto;
+    border-radius: 0.3em;
+}
+.checking1
+{
+    padding: 0.5rem;
+    margin: auto;
+    border-radius: 0.3em;
+}
+.shiftdown{
+    margin-top: 1.8rem;
+}
+.shiftdown1{
+    margin-top: 0.9rem;
+}
+.Bar2{
+    position:absolute;
+
+}
+.Bar3{
+    position:absolute;
+    
+}
+img{
+    height: 6rem;
+    width: 6rem;
+    border-radius: 3rem;
+    margin-top: -1.5rem;
 }

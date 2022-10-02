@@ -3,15 +3,29 @@ const errorHandler = require("../utils/errorHandler.js");
 const catchAsyncError =require("../middleware/catchAsyncErrors");
 const User=require("../models/userModel");
 const passport=require("passport");
+const cloudinary = require("cloudinary");
+
 exports.registerUser=catchAsyncError(async function(req,res,next){
-        
+  // console.log(req.body);
+      const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+        folder: "avatars",
+        width: 120,
+        height:120,
+        gravity: 'faces',
+        crop: 'thumb'
+      });
+
     User.register({name:req.body.name,
         email:req.body.username,
         username:req.body.username,
+        avatar: {
+          public_id: myCloud.public_id,
+          url: myCloud.secure_url,
+        },
         stepsWalked:0,
         stepsTarget:0,
-        performedDate:0,
-        scheduledDate:0,
+        performedDate:00-00-0000,
+        scheduledDate:00-00-0000,
         calorieIntake:0,
         calorieTarget:0,
         proteinConsumed:0,
@@ -20,13 +34,14 @@ exports.registerUser=catchAsyncError(async function(req,res,next){
         carbTarget:0,
         fatConsumed:0,
         fatTarget:0,
+        feedback:true,
         active: false}, req.body.password, function(err, user) {
             if(err) {
               return next(new errorHandler(err))
             }
             else
       passport.authenticate("local")(req,res,function(){
-        
+    
     res.status(201).json({
     success:true,
     user
@@ -37,6 +52,7 @@ exports.registerUser=catchAsyncError(async function(req,res,next){
   });
   
  exports.loginUser=catchAsyncError(async function(req,res,next){
+  
     const user=await User({
         username:req.body.username,
         password:req.body.password
@@ -47,8 +63,7 @@ exports.registerUser=catchAsyncError(async function(req,res,next){
           console.log(err);
           }
           else{
-             passport.authenticate("local")(req,res,function(){  
-                    
+             passport.authenticate("local")(req,res,function(){   
           res.status(201).json({
         success:true,
         user
@@ -72,12 +87,12 @@ exports.logout=catchAsyncError(async function(req, res, next){
 exports.updateConsumed=catchAsyncError(async function(req,res,next){
     console.log(res.user);
     User.findOneAndUpdate(
-        {username:res.user.username},
-            {   calorieIntake:calorieIntake+req.body.calorieIntake,
-                proteinConsumed:proteinConsumed+req.body.proteinConsumed,
-                carbConsumed:   carbConsumed+req.body.carbConsumed,
-                fatConsumed:    fatConsumed+req.body.fatConsumed,
-                stepsWalked:stepsWalked+req.body.stepsWalked
+        {username:req.body.username},
+            {   calorieIntake:req.body.calorieIntake,
+                proteinConsumed:req.body.proteinConsumed,
+                carbConsumed:req.body.carbConsumed,
+                fatConsumed:req.body.fatConsumed,
+                stepsWalked:req.body.stepsWalked
             },
             {new:true}, 
         function(err, doc) {
@@ -93,29 +108,55 @@ res.status(201).json({
   });
 });
 exports.updateTarget=catchAsyncError(async function(req,res,next){
-  console.log(res.user);
-  User.findOneAndUpdate(
-      {email:req.body.email},
-          {   calorieTarget:req.body.calorieTarget,
-              proteinTarget:req.body.proteinTarget,
-              carbTarget:req.body.carbTarget,
-              fatTarget:req.body.fatTarget,
-              stepsTarget:req.body.stepsTarget
-          },
-          {new:true}, 
-      function(err, doc) {
+//   console.log(res.user);
+//   User.findOneAndUpdate(
+//       {email:req.body.email},
+          // {   calorieTarget:req.body.calorieTarget,
+          //     proteinTarget:req.body.proteinTarget,
+          //     carbTarget:req.body.carbTarget,
+          //     fatTarget:req.body.fatTarget,
+          //     stepsTarget:req.body.stepsTarget
+          // },
+//           {new:true}, 
+//       function(err, doc) {
   
-console.log(res.user);
-       const user=res.user;    
-res.status(201).json({
-  success:true,
-  user
-      })
+// console.log(res.user);
+//        const user=res.user;    
+// res.status(201).json({
+//   success:true,
+//   user
+//       })
       
+
+// });
+// });
+console.log(req.body);
+User.findOneAndUpdate(
+
+    {username:req.body.username},
+        {   calorieTarget:req.body.calorieTarget,
+          proteinTarget:req.body.proteinTarget,
+          carbTarget:req.body.carbTarget,
+          fatTarget:req.body.fatTarget,
+          stepsTarget:req.body.stepsTarget
+      },
+        {new:true}, 
+    function(err, doc) {
+
+console.log(res.user);
+     const user=res.user;    
+res.status(201).json({
+success:true,
+user
+    })
+    
 
 });
 });
 exports.getallUsers=catchAsyncError(
+ 
+    
+  
   async function(req,res,next){
     const users=await User.find({"role":"user"});
     res.status(201).json({
