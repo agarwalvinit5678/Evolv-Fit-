@@ -106,7 +106,7 @@ const Usercard = (props) => {
                     >
                         <div className="children">
                             <h5 className="removeMargin">{props.stepsWalked}</h5>
-                            <p3 className="removeMargin">walked</p3>
+                            <p3 className="removeMargin walked">walked</p3>
                         </div>
         </CircularProgressbarWithChildren>
                   </div>
