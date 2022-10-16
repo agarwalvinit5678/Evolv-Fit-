@@ -66,9 +66,9 @@ const Home=()=> {
 
     <div className='blackbanner'>
     <div className='head'>
-      <div className='headings'><FontAwesomeIcon icon={faPersonWalking} /> <pre> </pre>Steps </div>
-      <div className='headings'><FontAwesomeIcon icon={faDumbbell} /> <pre> </pre>Workout</div>
-      <div className='headings'><FontAwesomeIcon icon={faUtensils} /> <pre> </pre>Nutrition</div>
+      <div className='headings'><FontAwesomeIcon icon={faPersonWalking} /> Steps </div>
+      <div className='headings'><FontAwesomeIcon icon={faDumbbell} /> Workout</div>
+      <div className='headings'><FontAwesomeIcon icon={faUtensils} /> Nutrition</div>
     </div>
     {/* <div className='usercardouter'> */}
       <div className='usercardinner'>

@@ -1,13 +1,4 @@
-.UserCard{
-    display: flex;
-    flex-direction: row;
-    background-color: rgb(30,39,44);
-    margin:1rem;
-    border-radius: 1rem;
-    padding: 1rem;
-    
-    
-}
+
 .NameEmail{
     display:flexbox;
     flex-direction:vertical ;
@@ -18,6 +9,38 @@
     margin-top: 0px;
     margin-bottom: 0px;
 }
+@media only screen and (max-width: 600px) {
+    .UserCard{
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(30,39,44);
+        margin:1rem;
+        border-radius: 1rem;
+        padding: 1rem;
+        flex-wrap: wrap; 
+    }
+    .col3{
+       margin: auto;
+        display: flex;
+        flex-direction: row;
+    }
+    .col5{
+        display:flex;
+        flex-direction: row;
+        margin: auto;
+        
+    }
+}
+@media only screen and (min-width: 600px) {
+    .UserCard{
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(30,39,44);
+        margin:1rem;
+        border-radius: 1rem;
+        padding: 1rem;
+        flex-wrap: wrap; 
+    }
 .col1{
     
     margin-left:3rem
@@ -41,6 +64,7 @@ margin: auto;
 padding: 0.5rem;
 background-color:#37f5c6;
 border-radius: 0.4rem;
+}
 }
 .allmargin{
     margin: 0.4rem;
